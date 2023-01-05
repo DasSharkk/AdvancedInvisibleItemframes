@@ -1,0 +1,22 @@
+# This setting is used to change the item of the invisible item frame
+invisible-itemframe:
+  # If this is true, the item of the invisible item frame will be glinting like an enchanted item
+  enchanted: true
+  name: '&7Invisible Item Frame'
+crafting:
+  enabled: true
+  # ONLY CHANGE THE SETTINGS BELOW, IF YOU KNOW WHAT YOU ARE DOING, for easier changing use /aiif recipe ingame
+  shape:
+    - '012'
+    - '345'
+    - '678'
+  ingredients:
+    - 0:GLASS
+    - 1:GLASS
+    - 2:GLASS
+    - 3:GLASS
+    - 4:ITEM_FRAME
+    - 5:GLASS
+    - 6:GLASS
+    - 7:GLASS
+    - 8:GLASS

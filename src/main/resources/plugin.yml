@@ -1,0 +1,10 @@
+name: AdvancedInvisibleItemframes
+main: me.dasshark.advancedInvisibleItemframes.Main
+version: 1.0
+api-version: 1.19
+description: A plugin that adds invisible itemframes
+author: DasShark
+commands:
+  advancedinvisibleitemframes:
+    aliases: aiif
+    permission: advancedinvisibleitemframes.command
