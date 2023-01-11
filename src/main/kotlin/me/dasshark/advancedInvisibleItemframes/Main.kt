@@ -3,7 +3,6 @@ package me.dasshark.advancedInvisibleItemframes
 import me.dasshark.advancedInvisibleItemframes.commands.MainCommand
 import me.dasshark.advancedInvisibleItemframes.listeners.IFPlaceListener
 import me.dasshark.advancedInvisibleItemframes.listeners.InventoryListener
-import me.dasshark.advancedInvisibleItemframes.metrics.Metrics
 import me.dasshark.advancedInvisibleItemframes.utils.ItemBuilder
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
@@ -29,8 +28,6 @@ class Main : JavaPlugin() {
                 server.pluginManager.registerEvents(InventoryListener(), this)
 
                 registerRecipe()
-
-                Metrics(this, 17309)
         }
 
         override fun onDisable() {
