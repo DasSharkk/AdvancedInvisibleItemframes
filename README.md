@@ -2,7 +2,7 @@
 [![Releases](https://img.shields.io/github/v/release/dassharkk/AdvancedInvisibleItemframes?style=for-the-badge&display_name=release&label=Version)](https://github.com/DasSharkk/AdvancedInvisibleItemframes/releases/)
 [![License](https://img.shields.io/github/license/DasSharkk/AdvancedInvisibleItemframes?label=license&style=for-the-badge)](https://github.com/DasSharkk/AdvancedInvisibleItemframes/blob/master/LICENSE)
 [![Issues](https://img.shields.io/github/issues/DasSharkk/AdvancedInvisibleItemframes?style=for-the-badge)](https://github.com/DasSharkk/AdvancedInvisibleItemframes/issues)
-[![bstatsServers](https://img.shields.io/bstats/servers/17309?label=bstats%20Servers&style=for-the-badge)](https://bstats.org/plugin/bukkit/AdvancedInvisibleItemframes/17309)
+<!--[![bstatsServers](https://img.shields.io/bstats/servers/17309?label=bstats%20Servers&style=for-the-badge)](https://bstats.org/plugin/bukkit/AdvancedInvisibleItemframes/17309)-->
 
 # AdvancedInvisibleItemframes (AIIF)
 
