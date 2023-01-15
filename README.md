@@ -15,6 +15,7 @@ Drag the latest release into your `plugins` folder and restart your server.
 ## Commands
 - /aiif **help** - Displays all availible commands
 - /aiif **recipe** - Opens a GUI to change the crafting recipe of the invisible Item Frame
+- /aiif **amount \<amount\>** - Allows you to change the amount of Item Frames crafted
 - /aiif **get** - Gives yourself a invisible Item Frame
 - /aiif **reload** - Reloads the config and the crafting recipe *without* restarting the server
 
