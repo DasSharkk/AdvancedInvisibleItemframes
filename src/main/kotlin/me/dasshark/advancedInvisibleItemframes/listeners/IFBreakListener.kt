@@ -12,8 +12,8 @@ class IFBreakListener : Listener {
     @EventHandler
      fun onHangingBreak(event: HangingBreakEvent) {
          if (event.entity.persistentDataContainer.has(Main.invisibleKey, PersistentDataType.BYTE)) {
-             event.isCancelled = true;
-             event.entity.remove();
+             event.isCancelled = true
+             event.entity.remove()
              event.entity.world.dropItemNaturally(event.entity.location, Main.instance.getInvisFrame()!!)
          }
      }
