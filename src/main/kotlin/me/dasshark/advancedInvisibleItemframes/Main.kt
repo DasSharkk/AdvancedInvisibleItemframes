@@ -1,6 +1,7 @@
 package me.dasshark.advancedInvisibleItemframes
 
 import me.dasshark.advancedInvisibleItemframes.commands.MainCommand
+import me.dasshark.advancedInvisibleItemframes.listeners.IFBreakListener
 import me.dasshark.advancedInvisibleItemframes.listeners.IFPlaceListener
 import me.dasshark.advancedInvisibleItemframes.listeners.InventoryListener
 import me.dasshark.advancedInvisibleItemframes.utils.ItemBuilder
@@ -24,6 +25,7 @@ class Main : JavaPlugin() {
 
                 getCommand("advancedinvisibleitemframes")?.setExecutor(MainCommand())
                 getCommand("advancedinvisibleitemframes")?.tabCompleter = MainCommand()
+                server.pluginManager.registerEvents(IFBreakListener(), this)
                 server.pluginManager.registerEvents(IFPlaceListener(), this)
                 server.pluginManager.registerEvents(InventoryListener(), this)
 
@@ -37,29 +39,12 @@ class Main : JavaPlugin() {
         companion object {
                 lateinit var invisibleKey: NamespacedKey
                 lateinit var instance: Main
-                val prefix = "§8» §x§f§b§0§0§0§0A§x§f§c§3§8§0§0I§x§f§c§6§f§0§0I§x§f§d§a§7§0§0F §7"
+                const val prefix = "§8» §x§f§b§0§0§0§0A§x§f§c§3§8§0§0I§x§f§c§6§f§0§0I§x§f§d§a§7§0§0F §7"
         }
 
         fun registerRecipe() {
                 if (!config.getBoolean("crafting.enabled")) return
-                lateinit var item: ItemStack
-                if (config.getBoolean("invisible-itemframe.enchanted")) {
-                        try {
-                                item = ItemBuilder(Material.ITEM_FRAME).setName(ChatColor.translateAlternateColorCodes('&', config.getString("invisible-itemframe.name")!!)).setInvisible().addEnchant(Enchantment.ARROW_DAMAGE, 1).addItemFlag(ItemFlag.HIDE_ENCHANTS).itemStack
-                        } catch (e: NullPointerException) {
-                                Bukkit.getLogger().warning("AdvancedInvisibleItemframes: The item name is not set in the config.yml!")
-                                Bukkit.getLogger().severe("Please check your config.yml and correct the error or delete the entire file.")
-                                server.pluginManager.disablePlugin(this)
-                        }
-                } else {
-                        try {
-                                item = ItemBuilder(Material.ITEM_FRAME).setName(ChatColor.translateAlternateColorCodes('&', config.getString("invisible-itemframe.name")!!)).setInvisible().itemStack
-                        } catch (e: NullPointerException) {
-                                Bukkit.getLogger().warning("AdvancedInvisibleItemframes: The item name is not set in the config.yml!")
-                                Bukkit.getLogger().severe("Please check your config.yml and correct the error or delete the entire file.")
-                                server.pluginManager.disablePlugin(this)
-                        }
-                }
+                val item: ItemStack = getInvisFrame()!!
                 // create a NamespacedKey for your recipe
                 val key = NamespacedKey(this, "invisible_item_frame")
 
@@ -90,5 +75,27 @@ class Main : JavaPlugin() {
                 val key = NamespacedKey(this, "invisible_item_frame")
                 if (Bukkit.getRecipe(key) != null)
                         Bukkit.removeRecipe(key)
+        }
+
+        fun getInvisFrame(): ItemStack? {
+                if (config.getBoolean("invisible-itemframe.enchanted")) {
+                        try {
+                                return ItemBuilder(Material.ITEM_FRAME, config.getInt("crafting.amount")).setName(ChatColor.translateAlternateColorCodes('&', config.getString("invisible-itemframe.name")!!)).setInvisible().addEnchant(Enchantment.ARROW_DAMAGE, 1).addItemFlag(ItemFlag.HIDE_ENCHANTS).itemStack
+                        } catch (e: NullPointerException) {
+                                Bukkit.getLogger().warning("The item name or amount is not set in the config.yml!")
+                                Bukkit.getLogger().severe("Please check your config.yml and correct the error or delete the entire file.")
+                                server.pluginManager.disablePlugin(this)
+                                return null
+                        }
+                } else {
+                        try {
+                                return ItemBuilder(Material.ITEM_FRAME, config.getInt("crafting.amount")).setName(ChatColor.translateAlternateColorCodes('&', config.getString("invisible-itemframe.name")!!)).setInvisible().itemStack
+                        } catch (e: NullPointerException) {
+                                Bukkit.getLogger().warning("The item name or amount is not set in the config.yml!")
+                                Bukkit.getLogger().severe("Please check your config.yml and correct the error or delete the entire file.")
+                                server.pluginManager.disablePlugin(this)
+                                return null
+                        }
+                }
         }
 }

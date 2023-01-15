@@ -20,3 +20,5 @@ crafting:
     - 6:GLASS
     - 7:GLASS
     - 8:GLASS
+  # Amount of Invisframes the player should get
+  amount: 1
