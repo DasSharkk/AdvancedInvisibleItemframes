@@ -19,16 +19,17 @@ class IFPlaceListener: Listener {
         val frame: ItemStack
         val p = e.player ?: return
 
-        frame = if (p.inventory.itemInMainHand.type === Material.ITEM_FRAME)
-            p.inventory.itemInMainHand
+        if (p.inventory.itemInMainHand.type === Material.ITEM_FRAME)
+            frame = p.inventory.itemInMainHand
         else if (p.inventory.itemInOffHand.type === Material.ITEM_FRAME)
-            p.inventory.itemInOffHand
+            frame = p.inventory.itemInOffHand
         else
             return
 
         if (frame.itemMeta!!.persistentDataContainer.has(Main.invisibleKey, PersistentDataType.BYTE)) {
             val itemFrame: ItemFrame = e.entity as ItemFrame
             itemFrame.isVisible = false
+            e.entity.persistentDataContainer.set(Main.invisibleKey, PersistentDataType.BYTE, 1)
         }
     }
 

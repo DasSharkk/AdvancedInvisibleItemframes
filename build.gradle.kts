@@ -10,7 +10,7 @@ apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 apply(plugin = "com.github.johnrengelman.shadow")
 
 group = "me.dasshark"
-version = "1.1"
+version = "1.2"
 
 repositories {
     mavenCentral()
