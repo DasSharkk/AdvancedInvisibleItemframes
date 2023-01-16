@@ -14,7 +14,7 @@ class IFBreakListener : Listener {
          if (event.entity.persistentDataContainer.has(Main.invisibleKey, PersistentDataType.BYTE)) {
              event.isCancelled = true
              event.entity.remove()
-             event.entity.world.dropItemNaturally(event.entity.location, Main.instance.getInvisFrame()!!)
+             event.entity.world.dropItemNaturally(event.entity.location, Main.instance.getInvisFrame(false)!!)
          }
      }
 

@@ -46,7 +46,7 @@ class MainCommand : CommandExecutor, TabCompleter {
                     sender.sendMessage("${Main.prefix}§cYou need to be a player to execute this command")
                     return false
                 }
-                sender.inventory.addItem(Main.instance.getInvisFrame()!!)
+                sender.inventory.addItem(Main.instance.getInvisFrame(false)!!)
                 sender.sendMessage("${Main.prefix}§aYou have received an invisible item frame")
                 return true
             } else if (args[0] == "reload") {
